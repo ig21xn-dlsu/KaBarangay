@@ -81,9 +81,6 @@ public class ComplaintActivity extends AppCompatActivity {
         // Back navigation
         btnBack.setOnClickListener(v -> finish());
 
-        // Clear Form Button
-        btnClear.setOnClickListener(v -> resetForm());
-
         // Date Picker Trigger
         btnDatePicker.setOnClickListener(v -> showDatePicker());
         etIncidentDate.setOnClickListener(v -> showDatePicker());
