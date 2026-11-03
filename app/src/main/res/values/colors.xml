@@ -6,4 +6,16 @@
     <color name="emergency_red">#BA1A1A</color>      <!-- Emergency Red -->
     <color name="nav_green_active">#1B4332</color>   <!-- Primary Dark Green -->
     <color name="nav_green_inactive">#4E5B52</color> <!-- Inactive/Muted Green -->
+
+    <color name="primary_dark">#1D2620</color>
+    <color name="primary_green">#22533D</color>
+    <color name="text_gray_green">#556358</color>
+    <color name="accent_red">#B91C1C</color>
+    <color name="accent_orange">#C85A32</color>
+    <color name="bg_main">#EFEAE1</color>
+    <color name="bg_card">#F5EFEB</color>
+    <color name="bg_card_inner">#E0D7C9</color>
+    <color name="border_light">#E8DDD4</color>
+    <color name="bg_warning">#F8E7E0</color>
+    <color name="bg_warning_inner">#ECCBC0</color>
 </resources>
