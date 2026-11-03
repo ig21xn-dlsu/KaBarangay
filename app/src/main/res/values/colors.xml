@@ -2,4 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="cream">#F6F4EB</color>              <!-- Cream Background -->
+    <color name="emergency_red">#BA1A1A</color>      <!-- Emergency Red -->
+    <color name="nav_green_active">#1B4332</color>   <!-- Primary Dark Green -->
+    <color name="nav_green_inactive">#4E5B52</color> <!-- Inactive/Muted Green -->
 </resources>
