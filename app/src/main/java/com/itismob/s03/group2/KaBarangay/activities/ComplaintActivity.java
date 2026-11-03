@@ -54,7 +54,6 @@ public class ComplaintActivity extends AppCompatActivity {
         cbDataPrivacy = findViewById(R.id.cbDataPrivacy);
         tvCharCounter = findViewById(R.id.tvCharCounter);
         btnBack = findViewById(R.id.btnBack);
-        btnClear = findViewById(R.id.btnClear);
         btnDatePicker = findViewById(R.id.btnDatePicker);
         btnSubmit = findViewById(R.id.btnSubmit);
         btnCallHotline = findViewById(R.id.btnCallHotline);
