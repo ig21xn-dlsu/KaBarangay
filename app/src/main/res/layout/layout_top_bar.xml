@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layoutTopBar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#134430"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="12dp">
+
+    <!-- Barangay Logo Icon Frame -->
+    <FrameLayout
+        android:id="@+id/logoFrame"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:background="@drawable/bg_rounded_icon_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_gravity="center"
+            android:contentDescription="Barangay Logo"
+            android:src="@drawable/icon_brgy"
+            app:tint="@color/white" />
+    </FrameLayout>
+
+    <!-- Subtitle: BARANGAY ITISMOB -->
+    <TextView
+        android:id="@+id/tvBarangayName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="8dp"
+        android:text="BARANGAY ITISMOB"
+        android:textColor="#8FB39F"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/btnNotification"
+        app:layout_constraintStart_toEndOf="@+id/logoFrame"
+        app:layout_constraintTop_toTopOf="@+id/logoFrame" />
+
+    <!-- Main Title: Barangay Home -->
+    <TextView
+        android:id="@+id/tvBarangayHome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="Barangay Home"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/logoFrame"
+        app:layout_constraintEnd_toStartOf="@+id/btnNotification"
+        app:layout_constraintStart_toStartOf="@+id/tvBarangayName"
+        app:layout_constraintTop_toBottomOf="@+id/tvBarangayName" />
+
+    <!-- Notification Bell -->
+    <ImageView
+        android:id="@+id/btnNotification"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Notifications"
+        android:padding="4dp"
+        android:src="@drawable/ic_notifications"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/white" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
