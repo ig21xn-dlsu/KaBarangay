@@ -1,5 +1,6 @@
 package com.itismob.s03.group2.KaBarangay.activities;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -58,6 +59,18 @@ public class DocumentReceiptActivity extends AppCompatActivity {
         findViewById(R.id.btnBack).setOnClickListener(v -> finish());
         findViewById(R.id.btnUploadReceipt).setOnClickListener(v -> imagePicker.launch("image/*"));
         findViewById(R.id.btnSubmitReceipt).setOnClickListener(v -> submit());
+
+        // Bottom nav
+        findViewById(R.id.navTahanan).setOnClickListener(v -> {
+            startActivity(new Intent(this, HomeActivity.class));
+            finish();
+        });
+        findViewById(R.id.navSaklolo).setOnClickListener(v -> {
+            startActivity(new Intent(this, HotlineActivity.class));
+        });
+        findViewById(R.id.navProfile).setOnClickListener(v -> {
+            startActivity(new Intent(this, ProfileActivity.class));
+        });
     }
 
     private void submit() {

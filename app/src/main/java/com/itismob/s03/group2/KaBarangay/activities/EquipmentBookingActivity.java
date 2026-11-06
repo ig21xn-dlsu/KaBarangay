@@ -66,6 +66,18 @@ public class EquipmentBookingActivity extends AppCompatActivity {
         setupCategory(findViewById(R.id.chipEvents), "Kaganapan (Events)");
         setupCategory(findViewById(R.id.chipSports), "Palakasan (Sports)");
         findViewById(R.id.btnBackToServices).setOnClickListener(v -> finish());
+
+        // Bottom nav
+        findViewById(R.id.navTahanan).setOnClickListener(v -> {
+            startActivity(new Intent(this, HomeActivity.class));
+            finish();
+        });
+        findViewById(R.id.navSaklolo).setOnClickListener(v -> {
+            startActivity(new Intent(this, HotlineActivity.class));
+        });
+        findViewById(R.id.navProfile).setOnClickListener(v -> {
+            startActivity(new Intent(this, ProfileActivity.class));
+        });
     }
 
     private void setupCategory(TextView chip, String category) {

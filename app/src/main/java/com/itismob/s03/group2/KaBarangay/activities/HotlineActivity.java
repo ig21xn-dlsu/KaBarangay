@@ -1,5 +1,6 @@
 package com.itismob.s03.group2.KaBarangay.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,5 +27,17 @@ public class HotlineActivity extends AppCompatActivity {
         // Load generated prototype data
         adapter = new HotlineAdapter(HotlineDataGenerator.getHotlines());
         recyclerView.setAdapter(adapter);
+
+        // Bottom nav
+        findViewById(R.id.navTahanan).setOnClickListener(v -> {
+            startActivity(new Intent(this, HomeActivity.class));
+            finish();
+        });
+        findViewById(R.id.navSaklolo).setOnClickListener(v -> {
+            // Already on Hotline/Saklolo page, could refresh or do nothing
+        });
+        findViewById(R.id.navProfile).setOnClickListener(v -> {
+            startActivity(new Intent(this, ProfileActivity.class));
+        });
     }
 }
