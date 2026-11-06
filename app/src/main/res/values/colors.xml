@@ -18,4 +18,13 @@
     <color name="border_light">#E8DDD4</color>
     <color name="bg_warning">#F8E7E0</color>
     <color name="bg_warning_inner">#ECCBC0</color>
+
+    <color name="itismob_green">#134430</color>
+    <color name="itismob_green_pressed">#0D3324</color>
+    <color name="itismob_green_disabled">#9DB4A6</color>
+    <color name="itismob_green_light">#DDEBE0</color>
+    <color name="itismob_orange_light">#F5DFD3</color>
+    <color name="itismob_stroke">#D8CFC0</color>
+    <color name="itismob_card">#F5EFE6</color>
+    <color name="itismob_input">#F8F5EF</color>
 </resources>

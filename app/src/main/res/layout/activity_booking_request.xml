@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:id="@+id/main"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/bg_main">
+
+	<include
+		android:id="@+id/topBarComponent"
+		layout="@layout/layout_top_bar"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		app:layout_constraintTop_toTopOf="parent" />
+
+	<androidx.core.widget.NestedScrollView
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/topBarComponent">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:padding="16dp">
+
+			<TextView
+				android:id="@+id/btnBack"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="← Bumalik sa Kagamitan"
+				android:textColor="@color/nav_green_active"
+				android:textSize="14sp"
+				android:textStyle="bold" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="16dp"
+				android:text="Request ng Kagamitan"
+				android:textColor="@color/nav_green_active"
+				android:textSize="22sp"
+				android:textStyle="bold" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Punan ang detalye para sa review ng Property Custodian."
+				android:textColor="@color/text_gray_green"
+				android:textSize="13sp" />
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="16dp"
+				android:background="@drawable/bg_rounded_card_green"
+				android:padding="14dp"
+				android:text="KAGAMITAN NA PINILI"
+				android:textColor="@color/text_gray_green"
+				android:textSize="10sp"
+				android:textStyle="bold" />
+
+			<TextView
+				android:id="@+id/tvSelectedEquipment"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="-38dp"
+				android:padding="14dp"
+				android:textColor="@color/nav_green_active"
+				android:textSize="16sp"
+				android:textStyle="bold" />
+
+			<EditText
+				android:id="@+id/etRequesterName"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="16dp"
+				android:background="@drawable/bg_input_field"
+				android:hint="Pangalan ng requester"
+				android:inputType="textPersonName"
+				android:padding="14dp" />
+
+			<EditText
+				android:id="@+id/etContactNumber"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="8dp"
+				android:background="@drawable/bg_input_field"
+				android:hint="Contact number"
+				android:inputType="phone"
+				android:padding="14dp" />
+
+			<EditText
+				android:id="@+id/etQuantity"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="8dp"
+				android:background="@drawable/bg_input_field"
+				android:hint="Ilang piraso o unit?"
+				android:inputType="number"
+				android:padding="14dp" />
+
+			<EditText
+				android:id="@+id/etPurpose"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="8dp"
+				android:background="@drawable/bg_input_field"
+				android:gravity="top"
+				android:hint="Layunin ng paggamit"
+				android:inputType="textMultiLine"
+				android:minHeight="88dp"
+				android:padding="14dp" />
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="12dp"
+				android:orientation="horizontal">
+
+				<TextView
+					android:id="@+id/btnChooseDate"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:background="@drawable/bg_button_secondary"
+					android:padding="13dp"
+					android:text="Petsa\nPumili ng petsa"
+					android:textColor="@color/nav_green_active"
+					android:textSize="12sp" />
+
+				<TextView
+					android:id="@+id/btnChooseTime"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="8dp"
+					android:layout_weight="1"
+					android:background="@drawable/bg_button_secondary"
+					android:padding="13dp"
+					android:text="Oras\nPumili ng oras"
+					android:textColor="@color/nav_green_active"
+					android:textSize="12sp" />
+			</LinearLayout>
+
+			<TextView
+				android:id="@+id/tvBookingDate"
+				android:layout_width="0dp"
+				android:layout_height="0dp"
+				android:visibility="gone" />
+
+			<TextView
+				android:id="@+id/tvBookingTime"
+				android:layout_width="0dp"
+				android:layout_height="0dp"
+				android:visibility="gone" />
+
+			<TextView
+				android:id="@+id/btnUploadDocument"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="12dp"
+				android:background="@drawable/bg_dashed_upload"
+				android:padding="16dp"
+				android:text="+  Mag-upload ng supporting document (PDF)"
+				android:textColor="@color/nav_green_active"
+				android:textSize="13sp"
+				android:textStyle="bold" />
+
+			<TextView
+				android:id="@+id/tvSelectedFile"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="4dp"
+				android:text="Walang napiling file"
+				android:textColor="@color/text_gray_green"
+				android:textSize="11sp" />
+
+			<Button
+				android:id="@+id/btnSubmitBooking"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="18dp"
+				android:background="@drawable/bg_button_primary"
+				android:text="I-submit ang Request"
+				android:textColor="@color/white"
+				android:textStyle="bold" />
+		</LinearLayout>
+	</androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
