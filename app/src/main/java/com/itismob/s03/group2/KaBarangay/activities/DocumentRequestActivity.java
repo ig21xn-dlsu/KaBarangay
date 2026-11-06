@@ -47,13 +47,10 @@ public class DocumentRequestActivity extends AppCompatActivity {
     }
 
     private void setupRequestItem(int viewId, String documentName) {
-        View item = findViewById(viewId);
-        item.setOnClickListener(v -> {
-            // Replace this with the actual application form screen
-            // Intent i = new Intent(this, DocumentApplicationActivity.class);
-            // i.putExtra("documentType", documentName);
-            // startActivity(i);
-            Toast.makeText(this, documentName, Toast.LENGTH_SHORT).show();
+        findViewById(viewId).setOnClickListener(v -> {
+            Intent i = new Intent(this, DocumentReceiptActivity.class);
+            i.putExtra(DocumentReceiptActivity.EXTRA_DOCUMENT_TYPE, documentName);
+            startActivity(i);
         });
     }
 }
