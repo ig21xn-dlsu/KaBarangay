@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="doc_header_mint">#D9E8DC</color>
+    <color name="doc_card_beige">#EFE9DF</color>
+    <color name="doc_card_stroke">#DDD5C6</color>
+    <color name="doc_strip_bg">#FAF7F2</color>
+    <color name="doc_orange">#D9531E</color>
+    <color name="doc_orange_bg">#FDEDE6</color>
+    <color name="doc_orange_stroke">#F2B9A2</color>
+    <color name="doc_green_stroke">#A9C7B3</color>
+    <color name="doc_dark_green">#134430</color>
+</resources>
