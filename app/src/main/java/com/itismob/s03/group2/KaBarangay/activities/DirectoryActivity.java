@@ -36,6 +36,12 @@ public class DirectoryActivity extends AppCompatActivity {
             startActivity(new Intent(this, HomeActivity.class));
             finish();
         });
+        findViewById(R.id.navSaklolo).setOnClickListener(v -> {
+            startActivity(new Intent(this, HotlineActivity.class));
+        });
+        findViewById(R.id.navProfile).setOnClickListener(v -> {
+            startActivity(new Intent(this, ProfileActivity.class));
+        });
     }
 
     private void dial(String number) {

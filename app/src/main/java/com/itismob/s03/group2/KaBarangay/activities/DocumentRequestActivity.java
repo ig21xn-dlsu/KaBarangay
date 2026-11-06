@@ -36,13 +36,14 @@ public class DocumentRequestActivity extends AppCompatActivity {
 
         // Bottom nav (IDs come from layout_bottom_navigation.xml)
         findViewById(R.id.navTahanan).setOnClickListener(v -> {
-            // e.g. startActivity(new Intent(this, HomeActivity.class));
+            startActivity(new Intent(this, HomeActivity.class));
+            finish();
         });
         findViewById(R.id.navSaklolo).setOnClickListener(v -> {
-            // e.g. startActivity(new Intent(this, SakloloActivity.class));
+            startActivity(new Intent(this, HotlineActivity.class));
         });
         findViewById(R.id.navProfile).setOnClickListener(v -> {
-            // e.g. startActivity(new Intent(this, ProfileActivity.class));
+            startActivity(new Intent(this, ProfileActivity.class));
         });
     }
 

@@ -2,6 +2,7 @@ package com.itismob.s03.group2.KaBarangay.activities;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
@@ -57,6 +58,18 @@ public class ComplaintActivity extends AppCompatActivity {
         btnDatePicker = findViewById(R.id.btnDatePicker);
         btnSubmit = findViewById(R.id.btnSubmit);
         btnCallHotline = findViewById(R.id.btnCallHotline);
+
+        // Bottom nav
+        findViewById(R.id.navTahanan).setOnClickListener(v -> {
+            startActivity(new Intent(this, HomeActivity.class));
+            finish();
+        });
+        findViewById(R.id.navSaklolo).setOnClickListener(v -> {
+            startActivity(new Intent(this, HotlineActivity.class));
+        });
+        findViewById(R.id.navProfile).setOnClickListener(v -> {
+            startActivity(new Intent(this, ProfileActivity.class));
+        });
     }
 
     private void setupSpinner() {
