@@ -92,7 +92,7 @@ public class BookingRequestActivity extends AppCompatActivity {
 		}
 		new AlertDialog.Builder(this)
 				.setTitle("Naisumite ang request")
-				.setMessage("Prototype lamang ito. Ipapasa ang iyong equipment request para sa review ng Barangay Property Custodian.")
+				.setMessage("Ang iyong equipment request ay naisumite na para sa review ng Barangay Property Custodian.")
 				.setPositiveButton("Sige", (dialog, which) -> finish())
 				.show();
 	}
