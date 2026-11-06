@@ -1,10 +1,767 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.DocumentRequestActivity">
+    android:background="@color/bg_main">
 
+    <!-- Reusable top bar -->
+    <include
+        android:id="@+id/topBarComponent"
+        layout="@layout/layout_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Reusable bottom navigation -->
+    <include
+        android:id="@+id/bottomNavComponent"
+        layout="@layout/layout_bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <!-- Page content -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavComponent"
+        app:layout_constraintTop_toBottomOf="@id/topBarComponent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- ===================== HEADER (mint) ===================== -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/doc_header_mint"
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp"
+                android:paddingBottom="16dp"
+                android:paddingTop="14dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <!-- Back -->
+                    <LinearLayout
+                        android:id="@+id/btnBack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingVertical="4dp">
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:contentDescription="Bumalik"
+                            android:src="@drawable/ic_doc_arrow_back"
+                            app:tint="@color/nav_green_active" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:text="Bumalik sa Mga Serbisyo"
+                            android:textColor="@color/nav_green_active"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- Desk chip -->
+                    <TextView
+                        android:id="@+id/tvDeskChip"
+                        style="@style/DocChip"
+                        android:layout_marginStart="8dp"
+                        android:background="@drawable/bg_doc_chip_header"
+                        android:ellipsize="end"
+                        android:text="●  Taalan at Clearance Desk"
+                        android:textColor="@color/nav_green_active" />
+                </LinearLayout>
+
+                <!-- Eyebrow -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:src="@drawable/ic_doc_folder"
+                        app:tint="@color/text_gray_green" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:text="CIVIL REGISTRY &amp; DOCUMENT DESK"
+                        android:textColor="@color/text_gray_green"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Mga Dokumento ng Barangay"
+                    android:textColor="@color/nav_green_active"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Subaybayan ang katayuan ng iyong mga aplikasyon at humiling ng mga opisyal na sertipikasyon."
+                    android:textColor="@color/text_gray_green"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <!-- ===================== BODY ===================== -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Katayuan ng Dokumento -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/DocSectionTitle"
+                        android:text="Katayuan ng\nDokumento" />
+
+                    <TextView
+                        android:id="@+id/tvActiveCount"
+                        style="@style/DocChip"
+                        android:background="@drawable/bg_doc_chip_green"
+                        android:text="3\nAktibo"
+                        android:textColor="@color/nav_green_active" />
+
+                    <TextView
+                        style="@style/DocMicroLabel"
+                        android:layout_marginStart="8dp"
+                        android:text="Document\nStatus" />
+                </LinearLayout>
+
+                <!-- Card 1: Sumasailalim sa Pagsusuri -->
+                <LinearLayout
+                    android:id="@+id/cardStatus1"
+                    style="@style/DocStatusCard">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/DocMicroLabel"
+                                android:text="REF. NO." />
+
+                            <TextView
+                                android:id="@+id/tvRef1"
+                                style="@style/DocRefNumber"
+                                android:text="#REF-2024-0412" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvChip1"
+                            style="@style/DocChip"
+                            android:background="@drawable/bg_doc_chip_orange"
+                            android:text="●  Sumasailalim sa Pagsusuri"
+                            android:textColor="@color/doc_orange" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/DocMicroLabel"
+                                android:text="Dokumento" />
+
+                            <TextView
+                                android:id="@+id/tvDoc1"
+                                style="@style/DocCardValue"
+                                android:text="Barangay Clearance" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/DocMicroLabel"
+                                android:layout_gravity="end"
+                                android:text="Petsa ng Pagsumite" />
+
+                            <TextView
+                                android:id="@+id/tvDate1"
+                                style="@style/DocCardValue"
+                                android:layout_gravity="end"
+                                android:text="Oktubre 24, 2024" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/bg_doc_status_strip"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:id="@+id/tvStrip1"
+                            style="@style/DocStripText"
+                            android:text="Under Review • Opisina ng Kalihim"
+                            android:textColor="@color/nav_green_active" />
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/ic_hourglass"
+                            app:tint="@color/doc_orange" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Card 2: Nakatakda sa Pagproseso -->
+                <LinearLayout
+                    android:id="@+id/cardStatus2"
+                    style="@style/DocStatusCard">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/DocMicroLabel"
+                                android:text="REF. NO." />
+
+                            <TextView
+                                android:id="@+id/tvRef2"
+                                style="@style/DocRefNumber"
+                                android:text="#REF-2024-0389" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvChip2"
+                            style="@style/DocChip"
+                            android:background="@drawable/bg_doc_chip_green"
+                            android:text="●  Nakatakda sa Pagproseso"
+                            android:textColor="@color/nav_green_active" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/DocMicroLabel"
+                                android:text="Dokumento" />
+
+                            <TextView
+                                android:id="@+id/tvDoc2"
+                                style="@style/DocCardValue"
+                                android:text="Certificate of Residency" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/DocMicroLabel"
+                                android:layout_gravity="end"
+                                android:text="Petsa ng Pagsumite" />
+
+                            <TextView
+                                android:id="@+id/tvDate2"
+                                style="@style/DocCardValue"
+                                android:layout_gravity="end"
+                                android:text="Oktubre 18, 2024" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/bg_doc_status_strip"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:id="@+id/tvStrip2"
+                            style="@style/DocStripText"
+                            android:text="Processing • Pagpapatunay ng Tirahan"
+                            android:textColor="@color/nav_green_active" />
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/ic_doc_clipboard"
+                            app:tint="@color/nav_green_active" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Card 3: Kailangan ng Dokumento -->
+                <LinearLayout
+                    android:id="@+id/cardStatus3"
+                    style="@style/DocStatusCard">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/DocMicroLabel"
+                                android:text="REF. NO." />
+
+                            <TextView
+                                android:id="@+id/tvRef3"
+                                style="@style/DocRefNumber"
+                                android:text="#REF-2024-0341" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvChip3"
+                            style="@style/DocChip"
+                            android:background="@drawable/bg_doc_chip_orange"
+                            android:text="●  Kailangan ng Dokumento"
+                            android:textColor="@color/doc_orange" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/DocMicroLabel"
+                                android:text="Dokumento" />
+
+                            <TextView
+                                android:id="@+id/tvDoc3"
+                                style="@style/DocCardValue"
+                                android:text="Barangay Business Clearance" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/DocMicroLabel"
+                                android:layout_gravity="end"
+                                android:text="Petsa ng Pagsumite" />
+
+                            <TextView
+                                android:id="@+id/tvDate3"
+                                style="@style/DocCardValue"
+                                android:layout_gravity="end"
+                                android:text="Oktubre 11, 2024" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/bg_doc_status_alert"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:id="@+id/tvStrip3"
+                            style="@style/DocStripText"
+                            android:text="Pending Requirement • Isumite ang Valid ID o DTI"
+                            android:textColor="@color/doc_orange" />
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/ic_doc_attach"
+                            app:tint="@color/doc_orange" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Humiling ng Dokumento -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/DocSectionTitle"
+                        android:text="Humiling ng Dokumento" />
+
+                    <TextView
+                        style="@style/DocMicroLabel"
+                        android:text="Document Request" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Pumili ng uri ng dokumento upang masimulan ang online application."
+                    android:textColor="@color/text_gray_green"
+                    android:textSize="13sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp" />
+
+                <!-- 1. Barangay Clearance -->
+                <LinearLayout
+                    android:id="@+id/itemBarangayClearance"
+                    style="@style/DocRequestItem">
+
+                    <ImageView
+                        style="@style/DocIconTile"
+                        android:src="@drawable/ic_doc_shield"
+                        app:tint="@color/nav_green_active" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/DocRequestTitle"
+                            android:text="Barangay Clearance" />
+
+                        <TextView
+                            style="@style/DocRequestDesc"
+                            android:text="Pangunahing pagpapatunay para sa trabaho at transaksyon" />
+                    </LinearLayout>
+
+                    <ImageView style="@style/DocChevron" />
+                </LinearLayout>
+
+                <!-- 2. Certificate of Residency -->
+                <LinearLayout
+                    android:id="@+id/itemCertResidency"
+                    style="@style/DocRequestItem">
+
+                    <ImageView
+                        style="@style/DocIconTile"
+                        android:src="@drawable/ic_doc_location"
+                        app:tint="@color/nav_green_active" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/DocRequestTitle"
+                            android:text="Certificate of Residency" />
+
+                        <TextView
+                            style="@style/DocRequestDesc"
+                            android:text="Katibayan ng opisyal na paninirahan sa nasasakupan" />
+                    </LinearLayout>
+
+                    <ImageView style="@style/DocChevron" />
+                </LinearLayout>
+
+                <!-- 3. Barangay Business Clearance -->
+                <LinearLayout
+                    android:id="@+id/itemBusinessClearance"
+                    style="@style/DocRequestItem">
+
+                    <ImageView
+                        style="@style/DocIconTile"
+                        android:src="@drawable/ic_doc_store"
+                        app:tint="@color/nav_green_active" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/DocRequestTitle"
+                            android:text="Barangay Business Clearance" />
+
+                        <TextView
+                            style="@style/DocRequestDesc"
+                            android:text="Para sa permit at pagpapatakbo ng negosyo sa komunidad" />
+                    </LinearLayout>
+
+                    <ImageView style="@style/DocChevron" />
+                </LinearLayout>
+
+                <!-- 4. Certificate of Good Moral Character -->
+                <LinearLayout
+                    android:id="@+id/itemGoodMoral"
+                    style="@style/DocRequestItem">
+
+                    <ImageView
+                        style="@style/DocIconTile"
+                        android:src="@drawable/ic_doc_star"
+                        app:tint="@color/nav_green_active" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/DocRequestTitle"
+                            android:text="Certificate of Good Moral Character" />
+
+                        <TextView
+                            style="@style/DocRequestDesc"
+                            android:text="Katibayan ng maayos na pag-uugali at kawalan ng kaso" />
+                    </LinearLayout>
+
+                    <ImageView style="@style/DocChevron" />
+                </LinearLayout>
+
+                <!-- 5. Certificate of Indigency -->
+                <LinearLayout
+                    android:id="@+id/itemIndigency"
+                    style="@style/DocRequestItem">
+
+                    <ImageView
+                        style="@style/DocIconTile"
+                        android:src="@drawable/ic_doc_heart"
+                        app:tint="@color/nav_green_active" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/DocRequestTitle"
+                            android:text="Certificate of Indigency" />
+
+                        <TextView
+                            style="@style/DocRequestDesc"
+                            android:text="Para sa tulong medikal, legal, o pampinansyal na gobyerno" />
+                    </LinearLayout>
+
+                    <ImageView style="@style/DocChevron" />
+                </LinearLayout>
+
+                <!-- 6. Certificate of No Objection -->
+                <LinearLayout
+                    android:id="@+id/itemNoObjection"
+                    style="@style/DocRequestItem">
+
+                    <ImageView
+                        style="@style/DocIconTile"
+                        android:src="@drawable/ic_doc_check_circle"
+                        app:tint="@color/nav_green_active" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/DocRequestTitle"
+                            android:text="Certificate of No Objection" />
+
+                        <TextView
+                            style="@style/DocRequestDesc"
+                            android:text="Pahintulot para sa konstruksyon, aktibidad, o espesyal na lisensya" />
+                    </LinearLayout>
+
+                    <ImageView style="@style/DocChevron" />
+                </LinearLayout>
+
+                <!-- Paalala sa mga Aplikante -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/bg_doc_info_card"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_doc_info"
+                            app:tint="@color/nav_green_active" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:text="Paalala sa mga Aplikante"
+                            android:textColor="@color/nav_green_active"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="6dp"
+                        android:lineSpacingExtra="2dp"
+                        android:text="Ang mga opisyal na dokumento ay ipinagkakaloob lamang sa mga beripikadong residente ng ITISMOB. Tiyaking aktibo ang iyong account bago mag-aplay."
+                        android:textColor="@color/text_gray_green"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <!-- Tulong at Paglilinaw -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_doc_card"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="12dp">
+
+                    <ImageView
+                        style="@style/DocIconTile"
+                        android:src="@drawable/ic_doc_headset"
+                        app:tint="@color/nav_green_active" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/DocMicroLabel"
+                            android:text="TULONG AT PAGLILINAW" />
+
+                        <TextView
+                            android:id="@+id/tvCivilDeskNumber"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="Barangay Civil Desk: 8-700-1234"
+                            android:textColor="@color/nav_green_active"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/btnCallCivilDesk"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:layout_marginStart="8dp"
+                        android:background="@drawable/bg_doc_call_button"
+                        android:clickable="true"
+                        android:contentDescription="Tawagan ang Civil Desk"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:padding="12dp"
+                        android:src="@drawable/ic_doc_phone"
+                        app:tint="@color/white" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

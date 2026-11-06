@@ -13,7 +13,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.itismob.s03.group2.KaBarangay.R;
 
-public class 3995LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
